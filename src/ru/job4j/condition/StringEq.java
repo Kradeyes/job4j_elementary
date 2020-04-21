@@ -4,12 +4,9 @@ public class StringEq {
 
     public static boolean check(String login) {
         String root = new String("root");
-        if (login.equals(root)) {
-            return true;
-        } else {
-            return false;
+        return login.equals(root);
         }
-    }
+
 
     public static void main(String[] args) {
         String your = "your_name";
