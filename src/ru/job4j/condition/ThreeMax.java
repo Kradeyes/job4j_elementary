@@ -3,15 +3,13 @@ package ru.job4j.condition;
 public class ThreeMax {
     public static int max(int first, int second, int third) {
         int result = first;
-        if (second > third && second > first) {
+        if (second > first && second > third) {
             result = second;
         }
-        if (third > second && third > first) {
+        if (third > first && second > first) {
             result = third;
         }
-        if (third == second && second > first) {
-            return second;
-        }
+
         return result;
     }
 }
