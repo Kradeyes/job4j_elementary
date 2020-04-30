@@ -16,17 +16,12 @@ public class Merge {
             } else if (j == right.length && i < left.length) {
                 rsl[k] = left[i];
                 i++;
-            } else if (j == right.length && i == left.length) {
-                break;
-            } else if (left[i] < right[j]) {
+            } else if (left[i] < right[j] || left[i] == right[j]) {
                 rsl[k] = left[i];
                 i++;
             } else if (left[i] > right[j]) {
                 rsl[k] = right[j];
                 j++;
-            } else if (left[i] == right[j]) {
-                rsl[k] = left[i];
-                i++;
             }
             k++;
         }
