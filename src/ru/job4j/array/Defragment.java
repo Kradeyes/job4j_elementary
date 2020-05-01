@@ -10,7 +10,6 @@ public class Defragment {
                 }
                 array[index] = array[point];
                 array[point] = null;
-
             }
             System.out.print(array[index] + " ");
         }

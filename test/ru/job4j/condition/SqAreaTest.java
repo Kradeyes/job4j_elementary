@@ -4,7 +4,6 @@ import org.junit.Test;
 import  org.junit.Assert;
 
 public class SqAreaTest {
-
     @Test
     public void when41Then1() {
     int inp = 4;

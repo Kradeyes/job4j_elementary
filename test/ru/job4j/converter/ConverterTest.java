@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 
 public class ConverterTest {
-
     @Test
     public void whenConvert140RblThen2Euro() {
         int in = 140;

@@ -5,7 +5,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class FindLoopTest {
-
     @Test
     public void whenArrayHasLength5Then0() {
         int[] input = new int[] {5, 10, 3};
