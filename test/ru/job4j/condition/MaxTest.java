@@ -31,4 +31,18 @@ public class MaxTest {
             int expected = 1;
             Assert.assertEquals(expected, result);
     }
+
+    @Test
+    public void maxFrom3() {
+        int result = Max.max(0, 3, 2);
+        int expected = 3;
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void maxFrom4() {
+        int result = Max.max(4, 1, 2, 3);
+        int expected = 4;
+        Assert.assertEquals(expected, result);
+    }
 }
