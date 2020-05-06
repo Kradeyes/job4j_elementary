@@ -10,4 +10,10 @@ public class Tiger extends Predator {
         super(name);
     }
 
+    public static void main(String[] args) {
+        Tiger tiger1 = new Tiger();
+        System.out.println();
+        Tiger tiger2 = new Tiger("Overloaded Tiger");
+    }
+
 }
