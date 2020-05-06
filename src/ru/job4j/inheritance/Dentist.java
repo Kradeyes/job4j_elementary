@@ -1,14 +1,20 @@
 package ru.job4j.inheritance;
 
-public class Doctor extends Profession {
+public class Dentist extends Doctor {
 
-    int patientsCount;
+    int inspectedTeethCount;
 
     @Override
     public String getName() {
         return super.getName();
     }
 
+    @Override
     public void patientExam() {
+        super.patientExam();
     }
+
+    public void pullOutATeeth() {
+    }
+
 }

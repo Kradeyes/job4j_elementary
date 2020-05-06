@@ -5,6 +5,7 @@ public class Profession {
     String surname;
     String education;
     int birthday;
+
     public String getName() {
         return name;
     }
