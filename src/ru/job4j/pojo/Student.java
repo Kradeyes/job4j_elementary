@@ -1,11 +1,11 @@
 package ru.job4j.pojo;
 
 public class Student {
-    String name;
-    String surname;
-    String patronymic;
-    int group;
-    String date;
+    private String name;
+    private String surname;
+    private String patronymic;
+    private int group;
+    private String date;
 
     public String getName() {
         return name;
