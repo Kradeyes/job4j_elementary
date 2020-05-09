@@ -40,15 +40,7 @@ public class Tracker {
      * @return массив всех не null элементов.
      */
     public Item[] findAll() {
-        Item[] findAll = new Item[items.length];
-        int size = 0;
-        for (int index = 0; index < items.length; index++) {
-            Item item = this.items[index];
-            if (item != null) {
-                findAll[size++] = this.items[index];
-            }
-        }
-        return Arrays.copyOf(findAll, size);
+        return Arrays.copyOf(items, position);
     }
 
 
@@ -57,11 +49,11 @@ public class Tracker {
      * @return массив элементов совпавших по имени.
      */
     public Item[] findByName(String key) {
-        Item[] findByName = new Item[items.length];
+        Item[] findByName = new Item[position];
         int size = 0;
-        for (int index = 0; index < items.length; index++) {
+        for (int index = 0; index < position; index++) {
             Item item = this.items[index];
-            if (item != null && item.getName().equals(key)) {
+            if (item.getName().equals(key)) {
                 findByName[size++] = this.items[index];
             }
         }
