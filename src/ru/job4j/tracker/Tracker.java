@@ -87,12 +87,11 @@ public class Tracker {
     /**
      * Метод производит замену элемента по ключу.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         int index = indexOf(id);
-        if (index != -1) {
             item.setId(id);
-            items[index].setName(item.getName());
-        }
+            items[index] = item;
+            return true;
     }
 
 
