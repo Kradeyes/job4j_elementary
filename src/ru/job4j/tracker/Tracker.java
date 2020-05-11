@@ -103,6 +103,7 @@ public class Tracker {
      * Метод производит удаление элемента по ключу.
      */
     public boolean delete(String id) {
+        boolean result = false;
         int index = indexOf(id);
         boolean rsl = index != -1;
         if (rsl) {
@@ -110,8 +111,9 @@ public class Tracker {
             System.arraycopy(items, index + 1, items, index, position - index);
             items[position - 1] = null;
             position--;
+            result = true;
         }
-        return true;
+        return result;
     }
 }
 
