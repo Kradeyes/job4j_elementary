@@ -16,7 +16,7 @@ public class StartUI {
         System.out.println("=== Show All ====");
         Item[] item = tracker.findAll();
         for (int i = 0; i < item.length; i++) {
-            System.out.println(item[i].toString());
+            System.out.println(item[i]);
         }
     }
 
@@ -46,7 +46,7 @@ public class StartUI {
         System.out.println("=== Find by Id ====");
         Item item = tracker.findById(input.askStr("Enter Id: "));
         if (item != null) {
-            System.out.println(item.toString());
+            System.out.println(item);
         } else {
             System.out.println("No application found");
         }
@@ -57,7 +57,7 @@ public class StartUI {
         Item[] item = tracker.findByName(input.askStr("Enter name: "));
         if (item.length != 0) {
             for (int i = 0; i < item.length; i++) {
-                System.out.println(item[i].toString());
+                System.out.println(item[i]);
             }
         } else {
             System.out.println("No application found");
@@ -69,7 +69,6 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu();
-            System.out.print("Select: ");
             int select = input.askInt("Select: ");
             if (select == 0) {
                 StartUI.createItem(input, tracker);
