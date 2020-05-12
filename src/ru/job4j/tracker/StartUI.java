@@ -5,68 +5,85 @@ import java.sql.SQLOutput;
 
 public class StartUI {
 
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        tracker.add(item);
+    }
+
+    public static void showAll(Tracker tracker) {
+        System.out.println("=== Show All ====");
+        Item[] item = tracker.findAll();
+        for (int i = 0; i < item.length; i++) {
+            System.out.println(item[i].toString());
+        }
+    }
+
+    public static void replaceItem(Input input, Tracker tracker) {
+        System.out.println("=== Replace Item ====");
+        String id = input.askStr("Enter Id: ");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Replace was successful");
+        } else {
+            System.out.println("Replace failed");
+        }
+    }
+
+    public static void deleteItem(Input input, Tracker tracker) {
+        System.out.println("=== Delete Item ====");
+        String id = input.askStr("Enter Id: ");
+        if (tracker.delete(id)) {
+            System.out.println("Removal was successful");
+        } else {
+            System.out.println("Removal failed");
+        }
+    }
+
+    public static void findById(Input input, Tracker tracker) {
+        System.out.println("=== Find by Id ====");
+        Item item = tracker.findById(input.askStr("Enter Id: "));
+        if (item != null) {
+            System.out.println(item.toString());
+        } else {
+            System.out.println("No application found");
+        }
+    }
+
+    public static void findByName(Input input, Tracker tracker) {
+        System.out.println("=== Find by name ====");
+        Item[] item = tracker.findByName(input.askStr("Enter name: "));
+        if (item.length != 0) {
+            for (int i = 0; i < item.length; i++) {
+                System.out.println(item[i].toString());
+            }
+        } else {
+            System.out.println("No application found");
+        }
+    }
+
 
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             this.showMenu();
             System.out.print("Select: ");
-            int inputNumber = Integer.valueOf(input.askStr(msg));
-            if (inputNumber == 0) {
-                System.out.println("=== Create a new Item ====");
-                System.out.print("Enter name: ");
-                String name = input.askStr(msg);
-                Item item = new Item(name);
-                tracker.add(item);
-             } else if (inputNumber == 1) {
-                System.out.println("=== Show All ====");
-                Item[] item = tracker.findAll();
-                for (int i = 0; i < item.length; i++) {
-                    System.out.println(item[i].toString());
-                }
-             } else if (inputNumber == 2) {
-                System.out.println("=== Replace Item ====");
-                System.out.println("Enter Id: ");
-                String id = input.askStr(msg);
-                System.out.println("Enter Name: ");
-                String name = input.askStr(msg);
-                Item item = new Item(name);
-                if (tracker.replace(id, item)) {
-                    System.out.println("Replace was successful");
-                } else {
-                    System.out.println("Replace failed");
-                }
-                } else if (inputNumber == 3) {
-                System.out.println("=== Delete Item ====");
-                System.out.println("Enter Id: ");
-                String id = input.askStr(msg);
-                if (tracker.delete(id)) {
-                    System.out.println("Removal was successful");
-                } else {
-                    System.out.println("Removal failed");
-                }
-                } else if (inputNumber == 4) {
-                System.out.println("=== Find by Id ====");
-                System.out.println("Enter Id: ");
-                Item item = tracker.findById(input.askStr(msg));
-                if (item != null) {
-                    System.out.println(item.toString());
-                } else {
-                    System.out.println("No application found");
-                }
-                } else if (inputNumber == 5) {
-                System.out.println("=== Find by name ====");
-                System.out.println("Enter name: ");
-                Item[] item = tracker.findByName(input.askStr(msg));
-                if (item.length != 0) {
-                    for (int i = 0; i < item.length; i++) {
-                        System.out.println(item[i].toString());
-                    }
-                } else {
-                    System.out.println("No application found");
-                }
-
-                } else if (inputNumber == 6) {
+            int select = input.askInt("Select: ");
+            if (select == 0) {
+                StartUI.createItem(input, tracker);
+             } else if (select == 1) {
+                StartUI.showAll(tracker);
+             } else if (select == 2) {
+                StartUI.replaceItem(input, tracker);
+             } else if (select == 3) {
+                StartUI.deleteItem(input, tracker);
+             } else if (select == 4) {
+                StartUI.findById(input, tracker);
+             } else if (select == 5) {
+                StartUI.findByName(input, tracker);
+             } else if (select == 6) {
                 run = false;
             }
         }
