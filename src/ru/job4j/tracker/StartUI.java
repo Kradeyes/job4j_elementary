@@ -22,7 +22,7 @@ public class StartUI {
                 System.out.println("=== Show All ====");
                 Item[] item = tracker.findAll();
                 for (int i = 0; i < item.length; i++) {
-                    System.out.println(item[i].getName() + " " + item[i].getId());
+                    System.out.println(item[i].toString());
                 }
              } else if (input == 2) {
                 System.out.println("=== Replace Item ====");
@@ -49,18 +49,26 @@ public class StartUI {
                 System.out.println("=== Find by Id ====");
                 System.out.println("Enter Id: ");
                 Item item = tracker.findById(scanner.nextLine());
-                System.out.println((item.getName() + " " + item.getId()));
-             } else if (input == 5) {
+                if (item != null) {
+                    System.out.println(item.toString());
+                } else {
+                    System.out.println("No application found");
+                }
+                } else if (input == 5) {
                 System.out.println("=== Find by name ====");
                 System.out.println("Enter name: ");
                 Item[] item = tracker.findByName(scanner.nextLine());
-                for (int i = 0; i < item.length; i++) {
-                    System.out.println(item[i].getName() + " " + item[i].getId());
+                if (item.length != 0) {
+                    for (int i = 0; i < item.length; i++) {
+                        System.out.println(item[i].toString());
+                    }
+                } else {
+                    System.out.println("No application found");
                 }
-            } else if (input == 6) {
+
+                } else if (input == 6) {
                 run = false;
             }
-
         }
     }
 

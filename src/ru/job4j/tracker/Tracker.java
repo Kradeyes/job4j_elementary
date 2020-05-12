@@ -5,10 +5,12 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Tracker {
+
     /**
      * Массив для хранения заявок.
      */
     private final Item[] items = new Item[100];
+
 
     /**
      * Указатель ячейки для новой заявки.
@@ -17,6 +19,7 @@ public class Tracker {
 
     /**
      * Метод добавления заявки в хранилище
+     *
      * @param item новая заявка
      */
     public Item add(Item item) {
@@ -28,6 +31,7 @@ public class Tracker {
     /**
      * Метод генерирует уникальный ключ для заявки.
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
+     *
      * @return Уникальный ключ.
      */
     private String generateId() {
@@ -37,6 +41,7 @@ public class Tracker {
 
     /**
      * Метод выводит все заявки.
+     *
      * @return массив всех не null элементов.
      */
     public Item[] findAll() {
@@ -46,6 +51,7 @@ public class Tracker {
 
     /**
      * Метод реализует поиск заявок по имени.
+     *
      * @return массив элементов совпавших по имени.
      */
     public Item[] findByName(String key) {
@@ -62,6 +68,7 @@ public class Tracker {
 
     /**
      * Метод реализует поиск заявок по уникальному ключу.
+     *
      * @return элемент по ключу.
      */
     public Item findById(String id) {
@@ -71,6 +78,7 @@ public class Tracker {
 
     /**
      * Метод реализует поиск индекса по ключу.
+     *
      * @return индекс.
      */
     private int indexOf(String id) {
@@ -98,7 +106,6 @@ public class Tracker {
     }
 
 
-
     /**
      * Метод производит удаление элемента по ключу.
      */
@@ -116,6 +123,7 @@ public class Tracker {
         return result;
     }
 }
+
 
 
 
