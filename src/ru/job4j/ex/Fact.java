@@ -2,7 +2,6 @@ package ru.job4j.ex;
 
 public class Fact {
 
-
     public static int calc(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("n should be bigger or equals 0");
