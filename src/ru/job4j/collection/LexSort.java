@@ -1,10 +1,8 @@
 package ru.job4j.collection;
 
-import javax.swing.*;
 import java.util.Comparator;
 
 public class LexSort implements Comparator<String> {
-
 
     @Override
     public int compare(String left, String right) {
