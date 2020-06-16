@@ -1,5 +1,6 @@
 package ru.job4j.collection;
 
+import javax.swing.*;
 import java.util.Comparator;
 
 public class LexSort implements Comparator<String> {
@@ -10,6 +11,6 @@ public class LexSort implements Comparator<String> {
         String[] second = right.split(". ");
         Integer firstNum = Integer.parseInt(first[0]);
         Integer secondNum = Integer.parseInt(second[0]);
-        return firstNum.compareTo(secondNum);
+        return Integer.compare(firstNum, secondNum);
     }
 }
